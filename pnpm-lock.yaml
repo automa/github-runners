@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@automa/bot':
+        specifier: ~0.0.3
+        version: 0.0.3
       '@fastify/autoload':
         specifier: ~5.7.1
         version: 5.7.2
@@ -138,6 +141,10 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@automa/bot@0.0.3':
+    resolution: {integrity: sha512-4b/S9XP70jkKppLQe1d2RCg5ri4yxORyHr14WK1ey23KYVXaqTKnLcez8ZBkTzSQn3FLtJz3e4YZsGyXRp/UZw==}
+    engines: {node: '>=22.3.0'}
 
   '@babel/code-frame@7.24.7':
     resolution: {integrity: sha512-BcYH1CVJBO9tvyIZ2jVeXgSIMvGZ2FDRvDdOIVQyuklNKSsx+eppDEBq/g47Ayw+RqNFE+URvOShmf+f/qwAlA==}
@@ -3041,6 +3048,10 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
+
+  '@automa/bot@0.0.3':
+    dependencies:
+      '@opentelemetry/api': 1.8.0
 
   '@babel/code-frame@7.24.7':
     dependencies:

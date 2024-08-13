@@ -16,7 +16,7 @@ export const version = pkg.version;
 const schema = Type.Object({
   AUTOMA: Type.Object({
     WEBHOOK_SECRET: Type.String({
-      default: '',
+      default: 'atma_whsec_github-runners',
     }),
   }),
   PORT: Type.Number({

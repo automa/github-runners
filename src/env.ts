@@ -1,3 +1,5 @@
+import { dirname, join } from 'node:path';
+
 import { Static, Type } from '@sinclair/typebox';
 import envSchema from 'nested-env-schema';
 
@@ -29,4 +31,9 @@ const schema = Type.Object({
 
 type Schema = Static<typeof schema>;
 
-export const env = envSchema<Schema>({ schema });
+export const env = envSchema<Schema>({
+  schema,
+  dotenv: {
+    path: join(dirname(__dirname), '.env'),
+  },
+});

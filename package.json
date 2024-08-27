@@ -4,7 +4,7 @@
   "private": true,
   "main": "build/index.js",
   "dependencies": {
-    "@automa/bot": "~0.0.3",
+    "@automa/bot": "~0.0.5",
     "@fastify/autoload": "~5.7.1",
     "@fastify/cookie": "~8.3.0",
     "@fastify/helmet": "~11.1.1",
@@ -21,7 +21,7 @@
     "fastify": "~4.10.2",
     "fastify-plugin": "~4.5.1",
     "http-errors": "~2.0.0",
-    "nested-env-schema": "~1.0.2"
+    "nested-env-schema": "~1.2.0"
   },
   "scripts": {
     "build": "rm -rf build && tsc -b --force",
@@ -52,7 +52,7 @@
     "eslint": "~8.38.0",
     "eslint-config-prettier": "~9.0.0",
     "eslint-import-resolver-typescript": "~3.5.5",
-    "eslint-plugin-import": "~2.27.5",
+    "eslint-plugin-import": "~2.29.1",
     "eslint-plugin-mocha": "~10.1.0",
     "eslint-plugin-prettier": "~5.0.0",
     "eslint-plugin-simple-import-sort": "~12.1.0",

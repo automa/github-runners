@@ -1,0 +1,7 @@
+name: CI
+on: [pull_request]
+jobs:
+  test:
+    uses: ./.github/workflows/_node-test.yml
+    with:
+      runner: macos-latest

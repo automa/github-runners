@@ -21,7 +21,8 @@
     "fastify": "~4.10.2",
     "fastify-plugin": "~4.5.1",
     "http-errors": "~2.0.0",
-    "nested-env-schema": "~1.2.0"
+    "nested-env-schema": "~1.2.0",
+    "yaml": "~2.5.0"
   },
   "scripts": {
     "build": "rm -rf build && tsc -b --force",
@@ -64,6 +65,7 @@
     "prettier": "~3.0.1",
     "sinon": "~15.2.0",
     "ts-node": "~10.9.2",
-    "typescript": "~5.2.2"
+    "typescript": "~5.2.2",
+    "zx": "~8.1.4"
   }
 }

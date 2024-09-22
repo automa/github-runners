@@ -1,3 +1,7 @@
+/* eslint-disable import/first */
+// Testing environment variables
+process.env.UPDATE_MAP = '{"ubuntu-22.04":"blacksmith-4vcpu-ubuntu-2204"}';
+
 // Import the modules to use their typings
 import '../src/plugins/error';
 

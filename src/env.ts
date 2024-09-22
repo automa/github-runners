@@ -27,6 +27,9 @@ const schema = Type.Object({
   SENTRY_DSN: Type.String({
     default: '',
   }),
+  UPDATE_MAP: Type.String({
+    default: '{}',
+  }),
 });
 
 type Schema = Static<typeof schema>;

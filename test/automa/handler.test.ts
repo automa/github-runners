@@ -83,6 +83,9 @@ suite('automa hook', () => {
             title: 'Running github-runners on monorepo',
           },
         },
+        {
+          baseURL: 'https://api.automa.app',
+        },
       ]);
     });
 
@@ -98,6 +101,9 @@ suite('automa hook', () => {
           proposal: {
             message: '',
           },
+        },
+        {
+          baseURL: 'https://api.automa.app',
         },
       ]);
     });
@@ -137,6 +143,9 @@ suite('automa hook', () => {
             title: 'Running github-runners on monorepo',
           },
         },
+        {
+          baseURL: 'https://api.automa.app',
+        },
       ]);
     });
 
@@ -170,6 +179,9 @@ suite('automa hook', () => {
             title: 'Running github-runners on monorepo',
           },
         },
+        {
+          baseURL: 'https://api.automa.app',
+        },
       ]);
     });
 
@@ -185,6 +197,9 @@ suite('automa hook', () => {
           proposal: {
             message: '',
           },
+        },
+        {
+          baseURL: 'https://api.automa.app',
         },
       ]);
     });

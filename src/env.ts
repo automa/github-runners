@@ -17,9 +17,6 @@ export const version = pkg.version;
 
 const schema = Type.Object({
   AUTOMA: Type.Object({
-    BASE_URL: Type.String({
-      default: 'http://localhost:8080',
-    }),
     WEBHOOK_SECRET: Type.String({
       default: 'atma_whsec_github-runners',
     }),

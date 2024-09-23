@@ -33,20 +33,29 @@ export default async function (app: FastifyInstance) {
       return reply.unauthorized();
     }
 
+    const baseURL = request.headers['x-automa-server-host'] as string;
+
     // Download code
-    const folder = await automa.code.download(request.body);
+    const folder = await automa.code.download(request.body, {
+      baseURL,
+    });
 
     try {
       // Modify code
       await update(folder);
 
       // Propose code
-      await automa.code.propose({
-        ...request.body,
-        proposal: {
-          message: env.COMMIT_MESSAGE,
+      await automa.code.propose(
+        {
+          ...request.body,
+          proposal: {
+            message: env.COMMIT_MESSAGE,
+          },
         },
-      });
+        {
+          baseURL,
+        },
+      );
     } finally {
       // Clean up
       automa.code.cleanup(request.body);

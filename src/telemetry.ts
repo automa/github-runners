@@ -1,13 +1,26 @@
 import process from 'node:process';
 
-import { api, logs, NodeSDK, resources } from '@opentelemetry/sdk-node';
 import {
-  SEMRESATTRS_DEPLOYMENT_ENVIRONMENT,
-  SEMRESATTRS_SERVICE_NAME,
-  SEMRESATTRS_SERVICE_NAMESPACE,
-  SEMRESATTRS_SERVICE_VERSION,
+  api,
+  logs,
+  metrics,
+  NodeSDK,
+  resources,
+  tracing,
+} from '@opentelemetry/sdk-node';
+import {
+  ATTR_SERVICE_NAME,
+  ATTR_SERVICE_VERSION,
 } from '@opentelemetry/semantic-conventions';
 import { logs as logsAPI } from '@opentelemetry/api-logs';
+import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-grpc';
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc';
+import { FastifyInstrumentation } from '@opentelemetry/instrumentation-fastify';
+import { HttpInstrumentation } from '@opentelemetry/instrumentation-http';
+import {
+  ATTR_DEPLOYMENT_ENVIRONMENT_NAME,
+  ATTR_SERVICE_NAMESPACE,
+} from '@opentelemetry/semantic-conventions/incubating';
 
 import {
   environment,
@@ -20,6 +33,10 @@ import {
 
 export { SeverityNumber } from '@opentelemetry/api-logs';
 
+const { BatchSpanProcessor, SimpleSpanProcessor } = tracing;
+
+const { PeriodicExportingMetricReader } = metrics;
+
 const {
   BatchLogRecordProcessor,
   SimpleLogRecordProcessor,
@@ -27,16 +44,30 @@ const {
 } = logs;
 
 const sdk = new NodeSDK({
+  autoDetectResources: false,
   resource: new resources.Resource({
-    [SEMRESATTRS_SERVICE_NAMESPACE]: product,
-    [SEMRESATTRS_SERVICE_NAME]: service,
-    [SEMRESATTRS_SERVICE_VERSION]: version,
-    [SEMRESATTRS_DEPLOYMENT_ENVIRONMENT]: environment,
+    [ATTR_SERVICE_NAMESPACE]: product,
+    [ATTR_SERVICE_NAME]: service,
+    [ATTR_SERVICE_VERSION]: version,
+    [ATTR_DEPLOYMENT_ENVIRONMENT_NAME]: environment,
   }),
+  spanProcessors: !isTest
+    ? [
+        isProduction
+          ? new BatchSpanProcessor(new OTLPTraceExporter())
+          : new SimpleSpanProcessor(new OTLPTraceExporter()),
+      ]
+    : [],
+  instrumentations: [new HttpInstrumentation(), new FastifyInstrumentation()],
   logRecordProcessor: !isTest
     ? isProduction
       ? new BatchLogRecordProcessor(new ConsoleLogRecordExporter())
       : new SimpleLogRecordProcessor(new ConsoleLogRecordExporter())
+    : undefined,
+  metricReader: !isTest
+    ? new PeriodicExportingMetricReader({
+        exporter: new OTLPMetricExporter(),
+      })
     : undefined,
 });
 
@@ -55,7 +86,5 @@ process.on('SIGTERM', () => {
       () => console.log('Telemetry shut down successfully'),
       () => console.log('Telemetry shut down failed'),
     )
-    .finally(() => {
-      process.exit(0);
-    });
+    .finally(() => process.exit(0));
 });

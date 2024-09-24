@@ -1,0 +1,23 @@
+diff --git a/.github/workflows/_node-test.yml b/.github/workflows/_node-test.yml
+index fb0672e..96eb012 100644
+--- a/.github/workflows/_node-test.yml
++++ b/.github/workflows/_node-test.yml
+@@ -5,7 +5,7 @@ on:
+       runner:
+         required: false
+         type: string
+-        default: ubuntu-latest
++        default: warp-ubuntu-latest-x64-4x
+ jobs:
+   build:
+     runs-on: ${{ inputs.runner }}
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 0ae1bb5..28e018f 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -4,4 +4,4 @@ jobs:
+   test:
+     uses: ./.github/workflows/_node-test.yml
+     with:
+-      runner: macos-latest
++      runner: warp-macos-latest-arm64-6x

@@ -10,14 +10,10 @@ import { call } from '../utils';
 
 export const callWithFixture = async (
   app: FastifyInstance,
-  event: string,
   fileName: string,
 ) => {
   const body = JSON.parse(
-    readFileSync(
-      join(__dirname, 'fixtures', event, `${fileName}.json`),
-      'utf8',
-    ),
+    readFileSync(join(__dirname, 'fixtures', `${fileName}.json`), 'utf8'),
   );
 
   const signature = generateWebhookSignature(env.AUTOMA.WEBHOOK_SECRET, body);
@@ -25,6 +21,7 @@ export const callWithFixture = async (
   return call(app, '/hooks/automa', {
     method: 'POST',
     headers: {
+      'x-automa-server-host': 'https://api.automa.app',
       'x-automa-signature': signature,
     },
     payload: body,

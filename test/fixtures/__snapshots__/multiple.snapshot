@@ -1,0 +1,35 @@
+diff --git a/.github/workflows/lint.yml b/.github/workflows/lint.yml
+index 7da193b..c9dec70 100644
+--- a/.github/workflows/lint.yml
++++ b/.github/workflows/lint.yml
+@@ -2,7 +2,7 @@ name: Linting
+ on: [pull_request]
+ jobs:
+   lockfile:
+-    runs-on: ubuntu-latest
++    runs-on: blacksmith-4vcpu-ubuntu-2204
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v4
+@@ -11,7 +11,7 @@ jobs:
+           npm install
+           git diff --exit-code
+   lint:
+-    runs-on: ubuntu-latest
++    runs-on: blacksmith-4vcpu-ubuntu-2204
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v4
+diff --git a/.github/workflows/test.yml b/.github/workflows/test.yml
+index fd612a5..64705b4 100644
+--- a/.github/workflows/test.yml
++++ b/.github/workflows/test.yml
+@@ -2,7 +2,7 @@ name: Testing
+ on: [pull_request]
+ jobs:
+   test:
+-    runs-on: ubuntu-latest
++    runs-on: blacksmith-4vcpu-ubuntu-2204
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v4

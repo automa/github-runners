@@ -4,10 +4,17 @@ import { verifyWebhook } from '@automa/bot';
 import { env } from '../../env';
 import { logger, SeverityNumber } from '../../telemetry';
 
+import { automa } from '../../clients';
+import { update } from '../../update';
+
 export default async function (app: FastifyInstance) {
   app.post<{
     Body: {
-      action: string;
+      task: {
+        id: number;
+        token: string;
+        title: string;
+      };
     };
   }>('/automa', async (request, reply) => {
     // Verify request
@@ -26,8 +33,34 @@ export default async function (app: FastifyInstance) {
       return reply.unauthorized();
     }
 
-    // TODO: Process event
+    const baseURL = request.headers['x-automa-server-host'] as string;
 
-    reply.status(200).send();
+    // Download code
+    const folder = await automa.code.download(request.body, {
+      baseURL,
+    });
+
+    try {
+      // Modify code
+      await update(folder);
+
+      // Propose code
+      await automa.code.propose(
+        {
+          ...request.body,
+          proposal: {
+            message: env.COMMIT_MESSAGE,
+          },
+        },
+        {
+          baseURL,
+        },
+      );
+    } finally {
+      // Clean up
+      automa.code.cleanup(request.body);
+    }
+
+    return reply.send();
   });
 }

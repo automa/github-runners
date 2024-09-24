@@ -21,11 +21,17 @@ const schema = Type.Object({
       default: 'atma_whsec_github-runners',
     }),
   }),
+  COMMIT_MESSAGE: Type.String({
+    default: '',
+  }),
   PORT: Type.Number({
-    default: 5001,
+    default: 5004,
   }),
   SENTRY_DSN: Type.String({
     default: '',
+  }),
+  UPDATE_MAP: Type.String({
+    default: '{}',
   }),
 });
 

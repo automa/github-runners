@@ -1,0 +1,20 @@
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index b9b6d19..311d84f 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -6,12 +6,12 @@ jobs:
+       fail-fast: false
+       matrix:
+         arch: [x86_64, aarch64]
+-        os: [macos-latest,ubuntu-latest]
++        os: [warp-macos-latest-arm64-6x,warp-ubuntu-latest-x64-4x]
+         include:
+-          - os: ubuntu-latest
++          - os: warp-ubuntu-latest-x64-4x
+             arch: i686
+         exclude:
+-          - os: macos-latest
++          - os: warp-macos-latest-arm64-6x
+             arch: x86_64
+     runs-on: ${{ matrix.os}}
+     steps:

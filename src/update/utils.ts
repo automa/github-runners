@@ -2,6 +2,9 @@ enum Runner {
   Ubuntu2404 = 'ubuntu-24.04',
   Ubuntu2204 = 'ubuntu-22.04',
   Ubuntu2004 = 'ubuntu-20.04',
+  MacOS15Large = 'macos-15-large',
+  MacOS15 = 'macos-15',
+  MacOS15XLarge = 'macos-15-xlarge',
   MacOS14Large = 'macos-14-large',
   MacOS14 = 'macos-14',
   MacOS14XLarge = 'macos-14-xlarge',
@@ -27,7 +30,7 @@ export type Config = Record<string, string>;
 export const LATEST: {
   [key in Latest]: Runner;
 } = {
-  [Latest.Ubuntu]: Runner.Ubuntu2204,
+  [Latest.Ubuntu]: Runner.Ubuntu2404,
   [Latest.Windows]: Runner.Windows2022,
   [Latest.MacOS]: Runner.MacOS14,
   [Latest.MacOSLarge]: Runner.MacOS14Large,

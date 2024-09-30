@@ -35,10 +35,10 @@ importers:
       '@opentelemetry/api-logs':
         specifier: ~0.53.0
         version: 0.53.0
-      '@opentelemetry/exporter-metrics-otlp-grpc':
+      '@opentelemetry/exporter-metrics-otlp-http':
         specifier: ~0.53.0
         version: 0.53.0(@opentelemetry/api@1.8.0)
-      '@opentelemetry/exporter-trace-otlp-grpc':
+      '@opentelemetry/exporter-trace-otlp-http':
         specifier: ~0.53.0
         version: 0.53.0(@opentelemetry/api@1.8.0)
       '@opentelemetry/instrumentation-fastify':
@@ -471,12 +471,6 @@ packages:
     engines: {node: '>=14'}
     peerDependencies:
       '@opentelemetry/api': ^1.0.0
-
-  '@opentelemetry/exporter-metrics-otlp-grpc@0.53.0':
-    resolution: {integrity: sha512-2wjAccaG4yBxjfPqDeeXEYymwo1OYybUmBxUutDPeu0ColVkXyHIOxKSdHdn6vAn/v20m4w9E6SrSl4jtuZdiA==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      '@opentelemetry/api': ^1.3.0
 
   '@opentelemetry/exporter-metrics-otlp-http@0.53.0':
     resolution: {integrity: sha512-nvZtOk23pZOrTW10Za2WPd9pk4tWDvL6ALlHRFfInpcTjtOgCrv+fQDxpzosa5PeXvYeFFUO5aYCTnwiCX4Dzg==}
@@ -3701,18 +3695,6 @@ snapshots:
       '@opentelemetry/resources': 1.26.0(@opentelemetry/api@1.8.0)
       '@opentelemetry/sdk-logs': 0.53.0(@opentelemetry/api@1.8.0)
       '@opentelemetry/sdk-trace-base': 1.26.0(@opentelemetry/api@1.8.0)
-
-  '@opentelemetry/exporter-metrics-otlp-grpc@0.53.0(@opentelemetry/api@1.8.0)':
-    dependencies:
-      '@grpc/grpc-js': 1.11.1
-      '@opentelemetry/api': 1.8.0
-      '@opentelemetry/core': 1.26.0(@opentelemetry/api@1.8.0)
-      '@opentelemetry/exporter-metrics-otlp-http': 0.53.0(@opentelemetry/api@1.8.0)
-      '@opentelemetry/otlp-exporter-base': 0.53.0(@opentelemetry/api@1.8.0)
-      '@opentelemetry/otlp-grpc-exporter-base': 0.53.0(@opentelemetry/api@1.8.0)
-      '@opentelemetry/otlp-transformer': 0.53.0(@opentelemetry/api@1.8.0)
-      '@opentelemetry/resources': 1.26.0(@opentelemetry/api@1.8.0)
-      '@opentelemetry/sdk-metrics': 1.26.0(@opentelemetry/api@1.8.0)
 
   '@opentelemetry/exporter-metrics-otlp-http@0.53.0(@opentelemetry/api@1.8.0)':
     dependencies:

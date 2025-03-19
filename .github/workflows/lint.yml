@@ -8,12 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       checks: read
+    needs: [lockfile, lint]
     steps:
       - name: Wait for checks
         uses: poseidon/wait-for-status-checks@v0.6.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          match_pattern: lockfile|lint|test
+          match_pattern: test
   lockfile:
     runs-on: ubuntu-latest
     steps:

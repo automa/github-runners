@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
 import { verifyWebhook } from '@automa/bot';
+import { ATTR_HTTP_REQUEST_HEADER } from '@opentelemetry/semantic-conventions/incubating';
 
 import { env } from '../../env';
-import { logger, SeverityNumber } from '../../telemetry';
 
 import { automa } from '../../clients';
 import { update } from '../../update';
@@ -17,17 +17,13 @@ export default async function (app: FastifyInstance) {
       };
     };
   }>('/automa', async (request, reply) => {
+    const signature = request.headers['x-automa-signature'] as string;
+
     // Verify request
-    if (
-      !verifyWebhook(
-        env.AUTOMA.WEBHOOK_SECRET,
-        request.headers['x-automa-signature'] as string,
-        request.body,
-      )
-    ) {
-      logger.emit({
-        severityNumber: SeverityNumber.WARN,
-        body: 'Invalid signature',
+    if (!verifyWebhook(env.AUTOMA.WEBHOOK_SECRET, signature, request.body)) {
+      app.log.warn('Invalid signature', {
+        'http.request.id': request.id,
+        [ATTR_HTTP_REQUEST_HEADER('x-automa-signature')]: signature,
       });
 
       return reply.unauthorized();
@@ -42,7 +38,7 @@ export default async function (app: FastifyInstance) {
 
     try {
       // Modify code
-      await update(folder);
+      await update(app, folder);
 
       // Propose code
       await automa.code.propose(

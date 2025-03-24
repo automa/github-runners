@@ -1,5 +1,8 @@
 import { join } from 'node:path';
 
+// Always setup the environment first
+import { env, isProduction, version } from './env';
+
 import fastify from 'fastify';
 import fastifyAutoload from '@fastify/autoload';
 import fastifyHelmet from '@fastify/helmet';
@@ -8,13 +11,14 @@ import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
 import httpErrors from 'http-errors';
 
-// Always setup the environment first
-import { env, isProduction, version } from './env';
-import { logger, SeverityNumber } from './telemetry';
-
 export const server = async () => {
   const app = fastify({
-    logger: false,
+    logger: {
+      transport: {
+        targets: [],
+      },
+    },
+    disableRequestLogging: true,
     forceCloseConnections: true,
     pluginTimeout: 15_000,
   });
@@ -76,14 +80,6 @@ async function start() {
     await app.listen({
       port: env.PORT,
       host: '0.0.0.0',
-    });
-
-    logger.emit({
-      severityNumber: SeverityNumber.INFO,
-      body: 'Server started',
-      attributes: {
-        port: env.PORT,
-      },
     });
   } catch (err) {
     console.error(err);

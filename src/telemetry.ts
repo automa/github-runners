@@ -1,6 +1,15 @@
 import process from 'node:process';
 
 import {
+  environment,
+  isProduction,
+  isTest,
+  product,
+  service,
+  version,
+} from './env';
+
+import {
   api,
   logs,
   metrics,
@@ -12,26 +21,15 @@ import {
   ATTR_SERVICE_NAME,
   ATTR_SERVICE_VERSION,
 } from '@opentelemetry/semantic-conventions';
-import { logs as logsAPI } from '@opentelemetry/api-logs';
 import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-grpc';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc';
 import { FastifyInstrumentation } from '@opentelemetry/instrumentation-fastify';
 import { HttpInstrumentation } from '@opentelemetry/instrumentation-http';
+import { PinoInstrumentation } from '@opentelemetry/instrumentation-pino';
 import {
   ATTR_DEPLOYMENT_ENVIRONMENT_NAME,
   ATTR_SERVICE_NAMESPACE,
 } from '@opentelemetry/semantic-conventions/incubating';
-
-import {
-  environment,
-  isProduction,
-  isTest,
-  product,
-  service,
-  version,
-} from './env';
-
-export { SeverityNumber } from '@opentelemetry/api-logs';
 
 const { BatchSpanProcessor, SimpleSpanProcessor } = tracing;
 
@@ -58,7 +56,11 @@ const sdk = new NodeSDK({
           : new SimpleSpanProcessor(new OTLPTraceExporter()),
       ]
     : [],
-  instrumentations: [new HttpInstrumentation(), new FastifyInstrumentation()],
+  instrumentations: [
+    new HttpInstrumentation(),
+    new FastifyInstrumentation(),
+    new PinoInstrumentation(),
+  ],
   logRecordProcessor: !isTest
     ? isProduction
       ? new BatchLogRecordProcessor(new ConsoleLogRecordExporter())
@@ -74,8 +76,6 @@ const sdk = new NodeSDK({
 sdk.start();
 
 export const tracer = api.trace.getTracer('default');
-
-export const logger = logsAPI.getLogger('default');
 
 export const meter = api.metrics.getMeter('default');
 

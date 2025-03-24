@@ -2,6 +2,7 @@ import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
+import { FastifyInstance } from 'fastify';
 import { assert } from 'chai';
 import { $ } from 'zx';
 
@@ -76,7 +77,13 @@ const runFixture = async (folder: string, config?: Config) => {
   await $({ cwd: runPath })`git commit --allow-empty -m "Initial commit"`;
 
   try {
-    await update(runPath, config);
+    await update(
+      {
+        log: { info: () => {} },
+      } as unknown as FastifyInstance,
+      runPath,
+      config,
+    );
 
     const diff = await $({ cwd: runPath })`git diff`;
     let snapshot = '';

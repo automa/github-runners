@@ -1,7 +1,7 @@
 import { join } from 'node:path';
 
 // Always setup the environment first
-import { env, isProduction, version } from './env';
+import { env, isProduction, isTest, version } from './env';
 
 import fastify from 'fastify';
 import fastifyAutoload from '@fastify/autoload';
@@ -13,11 +13,13 @@ import httpErrors from 'http-errors';
 
 export const server = async () => {
   const app = fastify({
-    logger: {
-      transport: {
-        targets: [],
-      },
-    },
+    logger: !isTest
+      ? {
+          transport: {
+            targets: [],
+          },
+        }
+      : false,
     disableRequestLogging: true,
     forceCloseConnections: true,
     pluginTimeout: 15_000,

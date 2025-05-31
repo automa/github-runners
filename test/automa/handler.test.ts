@@ -10,6 +10,11 @@ import { automa } from '../../src/clients';
 
 import { callWithFixture } from './utils';
 
+const payload = {
+  id: 'whmsg_1',
+  timestamp: '2025-05-30T09:30:06.261Z',
+};
+
 suite('automa hook', () => {
   let app: FastifyInstance, response: LightMyRequestResponse;
   let downloadStub: SinonStub, proposeStub: SinonStub, cleanupStub: SinonStub;
@@ -52,9 +57,9 @@ suite('automa hook', () => {
     const response = await call(app, '/hooks/automa', {
       method: 'POST',
       headers: {
-        'x-automa-signature': 'invalid',
+        'webhook-signature': 'invalid',
       },
-      payload: {},
+      payload,
     });
 
     assert.equal(response.statusCode, 401);

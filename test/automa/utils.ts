@@ -21,8 +21,8 @@ export const callWithFixture = async (
   return call(app, '/hooks/automa', {
     method: 'POST',
     headers: {
+      'webhook-signature': signature,
       'x-automa-server-host': 'https://api.automa.app',
-      'x-automa-signature': signature,
     },
     payload: body,
   });

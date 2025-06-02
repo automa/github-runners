@@ -9,23 +9,17 @@ importers:
   .:
     dependencies:
       '@automa/bot':
-        specifier: ~0.1.5
-        version: 0.1.5
+        specifier: ~0.1.6
+        version: 0.1.6
       '@fastify/autoload':
         specifier: ~5.7.1
         version: 5.7.2
-      '@fastify/cookie':
-        specifier: ~8.3.0
-        version: 8.3.0
       '@fastify/helmet':
         specifier: ~11.1.1
         version: 11.1.1
       '@fastify/sensible':
         specifier: ~5.2.0
         version: 5.2.0
-      '@fastify/session':
-        specifier: ~10.4.0
-        version: 10.4.0
       '@fastify/swagger':
         specifier: ~8.8.0
         version: 8.8.0
@@ -160,8 +154,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@automa/bot@0.1.5':
-    resolution: {integrity: sha512-qbQbaL2lJZ0ZCWyJ1dKLo1NPSs1LWf3eCXGK6YkbF2allMavnKVDKl3mtNPlEowTv6VYUQBR1TgU84mH6nIsVw==}
+  '@automa/bot@0.1.6':
+    resolution: {integrity: sha512-tTK3F2X0W9b+w0WbuWm9RjSGrW/VHE/adI0ig0kKmydRycqBip4AD+DBWMg/ETl3ZX6EPx32hDjXEpOlHJL2kg==}
     engines: {node: '>=20.17.0'}
 
   '@babel/code-frame@7.24.7':
@@ -287,9 +281,6 @@ packages:
   '@fastify/autoload@5.7.2':
     resolution: {integrity: sha512-eSHuUHARbVocO3L7A1/q6YO+kkoWI2PsXJBpDsX+i3PcGTVncjn9771FaaM5BjOPx+44GxIjaszGOM/BZdfzaA==}
 
-  '@fastify/cookie@8.3.0':
-    resolution: {integrity: sha512-P9hY9GO11L20TnZ33XN3i0bt+3x0zaT7S0ohAzWO950E9PB2xnNhLYzPFJIGFi5AVN0yr5+/iZhWxeYvR6KCzg==}
-
   '@fastify/error@3.4.1':
     resolution: {integrity: sha512-wWSvph+29GR783IhmvdwWnN4bUxTD01Vm5Xad4i7i1VuAOItLvbPAb69sb0IQ2N57yprvhNIwAP5B6xfKTmjmQ==}
 
@@ -307,9 +298,6 @@ packages:
 
   '@fastify/sensible@5.2.0':
     resolution: {integrity: sha512-fy5vqJJAMVQctUT+kYfGdaGYeW9d8JaWEqtdWN6UmzQQ3VX0qMXE7Qc/MmfE+Cj3v0g5kbeR+obd3HZr3IMf+w==}
-
-  '@fastify/session@10.4.0':
-    resolution: {integrity: sha512-0lABZ0Rcg0VjiRj5xWeAwC1LBwgclaoAPikaONxTz0LJQTPPWSfSDDXafLkGDAqrl5KF8sC3jqLiZ9CbRHZ0Jg==}
 
   '@fastify/static@6.12.0':
     resolution: {integrity: sha512-KK1B84E6QD/FcQWxDI2aiUCwHxMJBI1KeCUzm1BwYpPY1b742+jeKruGHP2uOluuM6OkBPI8CIANrXcCRtC2oQ==}
@@ -1001,8 +989,8 @@ packages:
   axios@0.21.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
 
-  axios@1.7.7:
-    resolution: {integrity: sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==}
+  axios@1.9.0:
+    resolution: {integrity: sha512-re4CqKTJaURpzbLHtIi6XpDv20/CnpXOtjRY5/CU32L8gU8ek9UIivcfvSWvmKEngmVbrUtPpdDwWDWL7DNHvg==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1196,10 +1184,6 @@ packages:
 
   cookie@0.4.2:
     resolution: {integrity: sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==}
-    engines: {node: '>= 0.6'}
-
-  cookie@0.5.0:
-    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
 
   cookie@0.6.0:
@@ -3288,9 +3272,9 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@automa/bot@0.1.5':
+  '@automa/bot@0.1.6':
     dependencies:
-      axios: 1.7.7
+      axios: 1.9.0
       tar: 7.4.3
       zx: 8.1.8
     transitivePeerDependencies:
@@ -3478,11 +3462,6 @@ snapshots:
 
   '@fastify/autoload@5.7.2': {}
 
-  '@fastify/cookie@8.3.0':
-    dependencies:
-      cookie: 0.5.0
-      fastify-plugin: 4.5.1
-
   '@fastify/error@3.4.1': {}
 
   '@fastify/fast-json-stringify-compiler@4.3.0':
@@ -3515,11 +3494,6 @@ snapshots:
       ms: 2.1.3
       type-is: 1.6.18
       vary: 1.1.2
-
-  '@fastify/session@10.4.0':
-    dependencies:
-      fastify-plugin: 4.5.1
-      safe-stable-stringify: 2.4.3
 
   '@fastify/static@6.12.0':
     dependencies:
@@ -4401,7 +4375,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  axios@1.7.7:
+  axios@1.9.0:
     dependencies:
       follow-redirects: 1.15.6(debug@4.3.5)
       form-data: 4.0.0
@@ -4612,8 +4586,6 @@ snapshots:
   convert-source-map@2.0.0: {}
 
   cookie@0.4.2: {}
-
-  cookie@0.5.0: {}
 
   cookie@0.6.0: {}
 

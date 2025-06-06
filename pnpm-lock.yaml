@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@automa/bot':
-        specifier: ~0.1.6
-        version: 0.1.6
+        specifier: ~0.2.1
+        version: 0.2.1
       '@fastify/autoload':
         specifier: ~5.7.1
         version: 5.7.2
@@ -154,8 +154,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@automa/bot@0.1.6':
-    resolution: {integrity: sha512-tTK3F2X0W9b+w0WbuWm9RjSGrW/VHE/adI0ig0kKmydRycqBip4AD+DBWMg/ETl3ZX6EPx32hDjXEpOlHJL2kg==}
+  '@automa/bot@0.2.1':
+    resolution: {integrity: sha512-TTRuO2Y/OfQniLF0PWcX+vS70l/45yJE5zTKJRiwZfOC1Q4ClS2q3Yi0eYJn5mxto6oufIL6zAkffIZrDuAAuQ==}
     engines: {node: '>=20.17.0'}
 
   '@babel/code-frame@7.24.7':
@@ -3272,7 +3272,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@automa/bot@0.1.6':
+  '@automa/bot@0.2.1':
     dependencies:
       axios: 1.9.0
       tar: 7.4.3

@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { FastifyInstance, LightMyRequestResponse } from 'fastify';
 import { assert } from 'chai';
 import sinon, { SinonStub } from 'sinon';
-import { generateWebhookSignature } from '@automa/bot';
+import { CodeFolder, generateWebhookSignature } from '@automa/bot';
 
 /* eslint-disable import/first */
 // Testing environment variables
@@ -53,7 +53,7 @@ suite('automa hook', () => {
   setup(() => {
     downloadStub = sinon
       .stub(automa.code, 'download')
-      .resolves(join(__dirname, 'fixtures', 'code'));
+      .resolves(new CodeFolder(join(__dirname, 'fixtures', 'code')));
 
     proposeStub = sinon.stub(automa.code, 'propose').resolves();
 
@@ -127,7 +127,7 @@ suite('automa hook', () => {
             title: 'Running github-runners on monorepo',
           },
           proposal: {
-            message: '',
+            title: '',
           },
         },
         {
@@ -223,7 +223,7 @@ suite('automa hook', () => {
             title: 'Running github-runners on monorepo',
           },
           proposal: {
-            message: '',
+            title: '',
           },
         },
         {

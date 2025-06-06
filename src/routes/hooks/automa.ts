@@ -54,14 +54,14 @@ export default async function (app: FastifyInstance) {
 
     try {
       // Modify code
-      await update(app, folder);
+      await update(app, folder.path);
 
       // Propose code
       await automa.code.propose(
         {
           ...request.body.data,
           proposal: {
-            message: env.COMMIT_MESSAGE,
+            title: env.COMMIT_MESSAGE,
           },
         },
         {

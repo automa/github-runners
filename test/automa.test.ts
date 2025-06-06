@@ -1,18 +1,41 @@
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { FastifyInstance, LightMyRequestResponse } from 'fastify';
 import { assert } from 'chai';
 import sinon, { SinonStub } from 'sinon';
+import { generateWebhookSignature } from '@automa/bot';
 
-import { call, server } from '../utils';
+/* eslint-disable import/first */
+// Testing environment variables
+process.env.UPDATE_MAP = '{"ubuntu-24.04":"blacksmith-4vcpu-ubuntu-2204"}';
 
-import { automa } from '../../src/clients';
+import { env } from '../src/env';
 
-import { callWithFixture } from './utils';
+import { automa } from '../src/clients';
+
+import { call, server } from './utils';
 
 const payload = {
   id: 'whmsg_1',
   timestamp: '2025-05-30T09:30:06.261Z',
+};
+
+const callWithFixture = async (app: FastifyInstance, fileName: string) => {
+  const body = JSON.parse(
+    readFileSync(join(__dirname, 'fixtures', `${fileName}.json`), 'utf8'),
+  );
+
+  const signature = generateWebhookSignature(env.AUTOMA.WEBHOOK_SECRET, body);
+
+  return call(app, '/hooks/automa', {
+    method: 'POST',
+    headers: {
+      'webhook-signature': signature,
+      'x-automa-server-host': 'https://api.automa.app',
+    },
+    payload: body,
+  });
 };
 
 suite('automa hook', () => {

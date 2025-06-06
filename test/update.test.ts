@@ -6,6 +6,10 @@ import { FastifyInstance } from 'fastify';
 import { assert } from 'chai';
 import { $ } from 'zx';
 
+/* eslint-disable import/first */
+// Testing environment variables
+process.env.UPDATE_MAP = '{"ubuntu-24.04":"blacksmith-4vcpu-ubuntu-2204"}';
+
 import { update } from '../src/update';
 import { Config } from '../src/update/utils';
 

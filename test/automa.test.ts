@@ -6,10 +6,6 @@ import { assert } from 'chai';
 import sinon, { SinonStub } from 'sinon';
 import { CodeFolder, generateWebhookSignature } from '@automa/bot';
 
-/* eslint-disable import/first */
-// Testing environment variables
-process.env.UPDATE_MAP = '{"ubuntu-24.04":"blacksmith-4vcpu-ubuntu-2204"}';
-
 import { env } from '../src/env';
 
 import { automa } from '../src/clients';

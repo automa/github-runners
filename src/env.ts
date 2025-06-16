@@ -1,7 +1,7 @@
 import { dirname, join } from 'node:path';
 
-import { Static, Type } from '@sinclair/typebox';
 import envSchema from 'nested-env-schema';
+import { z } from 'zod/v4';
 
 import './telemetry';
 
@@ -17,30 +17,20 @@ export const product = 'bots';
 export const service = 'github-runners';
 export const version = pkg.version;
 
-const schema = Type.Object({
-  AUTOMA: Type.Object({
-    WEBHOOK_SECRET: Type.String({
-      default: 'atma_whsec_github-runners',
-    }),
+const schema = z.object({
+  AUTOMA: z.object({
+    WEBHOOK_SECRET: z.string().default('atma_whsec_github-runners'),
   }),
-  COMMIT_MESSAGE: Type.String({
-    default: '',
-  }),
-  PORT: Type.Number({
-    default: 5004,
-  }),
-  SENTRY_DSN: Type.String({
-    default: '',
-  }),
-  UPDATE_MAP: Type.String({
-    default: '{}',
-  }),
+  COMMIT_MESSAGE: z.string().optional(),
+  PORT: z.number().default(5004),
+  SENTRY_DSN: z.string().optional(),
+  UPDATE_MAP: z.string().default('{}'),
 });
 
-type Schema = Static<typeof schema>;
+type Schema = z.infer<typeof schema>;
 
 export const env = envSchema<Schema>({
-  schema,
+  schema: z.toJSONSchema(schema),
   dotenv: {
     path: join(dirname(__dirname), isTest ? '.env.test' : '.env'),
   },

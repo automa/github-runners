@@ -63,8 +63,8 @@ importers:
         specifier: ~2.0.0
         version: 2.0.0
       nested-env-schema:
-        specifier: ~1.3.0
-        version: 1.3.0
+        specifier: ~1.3.1
+        version: 1.3.1
       yaml:
         specifier: ~2.5.0
         version: 2.5.1
@@ -2345,8 +2345,8 @@ packages:
     engines: {node: '>= 4.4.x'}
     hasBin: true
 
-  nested-env-schema@1.3.0:
-    resolution: {integrity: sha512-YkEXzP98dvObdYm5ZrIbsFzIkQbWwhaWtK954HGXAO0s2MltUEag8zWCb7eCc0cYhbN204JUPsNS6PiJCzxRow==}
+  nested-env-schema@1.3.1:
+    resolution: {integrity: sha512-sHcEatLyybEThcGM+jTMDTDnP+xVTWmi1noq7Hz4CRThr8q53ya+0pzI4SfPkiZz10BeBiW3LLdvnKt91UaFJw==}
 
   netmask@2.0.2:
     resolution: {integrity: sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==}
@@ -5802,7 +5802,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  nested-env-schema@1.3.0:
+  nested-env-schema@1.3.1:
     dependencies:
       '@dotenvx/dotenvx': 1.11.1
       ajv: 8.17.1

@@ -122,9 +122,7 @@ suite('automa hook', () => {
             token: 'abcdef',
             title: 'Running github-runners on monorepo',
           },
-          proposal: {
-            title: '',
-          },
+          proposal: {},
         },
         {
           baseURL: 'https://api.automa.app',
@@ -218,9 +216,7 @@ suite('automa hook', () => {
             token: 'abcdef',
             title: 'Running github-runners on monorepo',
           },
-          proposal: {
-            title: '',
-          },
+          proposal: {},
         },
         {
           baseURL: 'https://api.automa.app',

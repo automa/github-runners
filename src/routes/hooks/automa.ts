@@ -61,7 +61,9 @@ export default async function (app: FastifyInstance) {
         {
           ...request.body.data,
           proposal: {
-            title: env.COMMIT_MESSAGE,
+            ...(env.COMMIT_MESSAGE && {
+              title: env.COMMIT_MESSAGE,
+            }),
           },
         },
         {

@@ -38,7 +38,7 @@ export UPDATE_MAP='{"ubuntu-24.04":"blacksmith-4vcpu-ubuntu-2204"}'
 
 # Install dependencies & build
 npm install
-npm build
+npm run build
 
 # Start server
 node build/index.js

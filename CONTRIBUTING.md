@@ -3,6 +3,7 @@
 ## Prerequisites
 
 - Have [`git`](https://git-scm.com/) installed.
+- Have [`docker`](https://docker.com) installed.
 - Have [`node`](https://nodejs.org/) & [`pnpm`](https://pnpm.io/) installed.
 - Have a [scheduled](https://docs.automa.app/agents/types#scheduled) bot in either [Automa](https://automa.app) (Cloud or Self-hosted) or in [automa/monorepo](https://github.com/automa/monorepo) local setup.
 
@@ -22,6 +23,12 @@ pnpm install
 
 ```sh
 pnpm start
+```
+
+## Stopping the server
+
+```sh
+pnpm stop
 ```
 
 ## CI/CD

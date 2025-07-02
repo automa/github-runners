@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { verifyWebhook } from '@automa/bot';
+import { verifyWebhook, WebhookEventType, WebhookPayload } from '@automa/bot';
 import { ATTR_HTTP_REQUEST_HEADER } from '@opentelemetry/semantic-conventions/incubating';
 
 import { env } from '../../env';
@@ -9,18 +9,13 @@ import { update } from '../../update';
 
 export default async function (app: FastifyInstance) {
   app.post<{
-    Body: {
-      id: string;
-      timestamp: string;
-      data: {
-        task: {
-          id: number;
-          token: string;
-          title: string;
-        };
-      };
-    };
+    Body: WebhookPayload;
   }>('/automa', async (request, reply) => {
+    // Skip if not `task.created` event
+    if (request.body.type !== WebhookEventType.TaskCreated) {
+      return reply.code(204).send();
+    }
+
     const id = request.headers['webhook-id'] as string;
     const signature = request.headers['webhook-signature'] as string;
 

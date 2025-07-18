@@ -1,6 +1,6 @@
 # github-runners
 
-This is a [deterministic](https://docs.automa.app/bots/types#deterministic) & [scheduled](https://docs.automa.app/bots/types#scheduled) [bot](https://docs.automa.app/bots/types#bot) for [**Automa**](https://automa.app) to migrate GitHub Actions workflow runner labels.
+This is a [deterministic](https://docs.automa.app/bots/types#deterministic) & [scheduled](https://docs.automa.app/bots/types#scheduled) [bot](https://docs.automa.app/bots/types#non-agent) for [**Automa**](https://automa.app) to migrate GitHub Actions workflow runner labels.
 
 #### Features
 

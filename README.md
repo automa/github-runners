@@ -24,7 +24,7 @@ This bot can be self-hosted. You can follow these steps to get it running.
 
 #### Automa bot
 
-[Create a bot](https://docs.automa.app/bot-development/create-bot) of [scheduled](https://docs.automa.app/bots/types#scheduled) type on [Automa](https://automa.app) (Cloud or Self-hosted) and point its webhook to your planned server (e.g., `http://your-server-ip:8000/hooks/automa`). Copy the **webhook secret** after it is created.
+[Register a bot](https://docs.automa.app/bot-development/registration) of [scheduled](https://docs.automa.app/bots/types#scheduled) type on [Automa](https://automa.app) (Cloud or Self-hosted) and point its webhook to your planned server (e.g., `http://your-server-ip:8000/hooks/automa`). Copy the **webhook secret** after it is created.
 
 #### Starting the server
 

@@ -15,6 +15,8 @@ enum Runner {
   MacOS13XLarge = 'macos-13-xlarge',
   MacOS12 = 'macos-12',
   MacOS12Large = 'macos-12-large',
+  Windows11Arm = 'windows-11-arm',
+  Windows2025 = 'windows-2025',
   Windows2022 = 'windows-2022',
   Windows2019 = 'windows-2019',
 }

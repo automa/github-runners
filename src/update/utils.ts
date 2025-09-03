@@ -36,9 +36,9 @@ export const LATEST: {
 } = {
   [Latest.Ubuntu]: Runner.Ubuntu2404,
   [Latest.Windows]: Runner.Windows2022,
-  [Latest.MacOS]: Runner.MacOS14,
-  [Latest.MacOSLarge]: Runner.MacOS14Large,
-  [Latest.MacOSXLarge]: Runner.MacOS14XLarge,
+  [Latest.MacOS]: Runner.MacOS15,
+  [Latest.MacOSLarge]: Runner.MacOS15Large,
+  [Latest.MacOSXLarge]: Runner.MacOS15XLarge,
 };
 
 export const updateRunner = (oldRunner: string, config: Config) => {

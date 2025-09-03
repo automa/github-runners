@@ -41,14 +41,14 @@ suite('update', () => {
   test('should update runners in matrix values', async () => {
     await runFixture('matrix', {
       'ubuntu-24.04': 'warp-ubuntu-latest-x64-4x',
-      'macos-14': 'warp-macos-latest-arm64-6x',
+      'macos-15': 'warp-macos-latest-arm64-6x',
     });
   });
 
   test('should update input for reusable workflows', async () => {
     await runFixture('reusable', {
       'ubuntu-24.04': 'warp-ubuntu-latest-x64-4x',
-      'macos-14': 'warp-macos-latest-arm64-6x',
+      'macos-15': 'warp-macos-latest-arm64-6x',
     });
   });
 

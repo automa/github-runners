@@ -4,6 +4,8 @@ enum Runner {
   Ubuntu2204 = 'ubuntu-22.04',
   Ubuntu2204Arm = 'ubuntu-22.04-arm',
   Ubuntu2004 = 'ubuntu-20.04',
+  MacOS26 = 'macos-26',
+  MacOS26XLarge = 'macos-26-xlarge',
   MacOS15Large = 'macos-15-large',
   MacOS15 = 'macos-15',
   MacOS15XLarge = 'macos-15-xlarge',

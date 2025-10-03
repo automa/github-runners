@@ -7,6 +7,7 @@ enum Runner {
   MacOS26 = 'macos-26',
   MacOS26XLarge = 'macos-26-xlarge',
   MacOS15Large = 'macos-15-large',
+  MacOS15Intel = 'macos-15-intel',
   MacOS15 = 'macos-15',
   MacOS15XLarge = 'macos-15-xlarge',
   MacOS14Large = 'macos-14-large',
@@ -37,7 +38,7 @@ export const LATEST: {
   [key in Latest]: Runner;
 } = {
   [Latest.Ubuntu]: Runner.Ubuntu2404,
-  [Latest.Windows]: Runner.Windows2022,
+  [Latest.Windows]: Runner.Windows2025,
   [Latest.MacOS]: Runner.MacOS15,
   [Latest.MacOSLarge]: Runner.MacOS15Large,
   [Latest.MacOSXLarge]: Runner.MacOS15XLarge,

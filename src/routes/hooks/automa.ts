@@ -1,10 +1,13 @@
 import { FastifyInstance } from 'fastify';
-import { verifyWebhook, WebhookEventType, WebhookPayload } from '@automa/bot';
+import Automa, {
+  verifyWebhook,
+  WebhookEventType,
+  WebhookPayload,
+} from '@automa/bot';
 import { ATTR_HTTP_REQUEST_HEADER } from '@opentelemetry/semantic-conventions/incubating';
 
 import { env } from '../../env';
 
-import { automa } from '../../clients';
 import { update } from '../../update';
 
 export default async function (app: FastifyInstance) {
@@ -43,28 +46,24 @@ export default async function (app: FastifyInstance) {
     );
 
     const baseURL = request.headers['x-automa-server-host'] as string;
+    const automa = new Automa({ baseURL });
 
     // Download code
-    const folder = await automa.code.download(request.body.data, { baseURL });
+    const folder = await automa.code.download(request.body.data);
 
     try {
       // Modify code
       await update(app, folder.path);
 
       // Propose code
-      await automa.code.propose(
-        {
-          ...request.body.data,
-          proposal: {
-            ...(env.COMMIT_MESSAGE && {
-              title: env.COMMIT_MESSAGE,
-            }),
-          },
+      await automa.code.propose({
+        ...request.body.data,
+        proposal: {
+          ...(env.COMMIT_MESSAGE && {
+            title: env.COMMIT_MESSAGE,
+          }),
         },
-        {
-          baseURL,
-        },
-      );
+      });
     } finally {
       // Clean up
       automa.code.cleanup(request.body.data);

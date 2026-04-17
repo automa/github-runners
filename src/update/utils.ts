@@ -1,4 +1,5 @@
 enum Runner {
+  UbuntuSlim = 'ubuntu-slim',
   Ubuntu2404 = 'ubuntu-24.04',
   Ubuntu2404Arm = 'ubuntu-24.04-arm',
   Ubuntu2204 = 'ubuntu-22.04',

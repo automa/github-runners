@@ -62,12 +62,9 @@ importers:
       fastify-plugin:
         specifier: ~5.1.0
         version: 5.1.0
-      http-errors:
-        specifier: ~2.0.0
-        version: 2.0.0
       nested-env-schema:
-        specifier: ~1.4.0
-        version: 1.4.0
+        specifier: ~1.4.1
+        version: 1.4.1
       yaml:
         specifier: ~2.5.0
         version: 2.5.1
@@ -78,9 +75,6 @@ importers:
       '@types/chai':
         specifier: ~4.3.3
         version: 4.3.16
-      '@types/http-errors':
-        specifier: ~2.0.1
-        version: 2.0.4
       '@types/mocha':
         specifier: ~9.1.1
         version: 9.1.1
@@ -748,9 +742,6 @@ packages:
 
   '@types/chai@4.3.16':
     resolution: {integrity: sha512-PatH4iOdyh3MyWtmHVFXLWCCIhUbopaltqddG9BzB+gMIzee2MJrvd+jouii9Z3wzQJruGWAm7WOMjgfG8hQlQ==}
-
-  '@types/http-errors@2.0.4':
-    resolution: {integrity: sha512-D0CFMMtydbJAegzOyHjtiKPLlvnm3iTZyZRSZoLq2mRhDdmLfIWOCYPfQJ4cu2erKghU++QvjcUjp/5h7hESpA==}
 
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -2398,8 +2389,8 @@ packages:
     engines: {node: '>= 4.4.x'}
     hasBin: true
 
-  nested-env-schema@1.4.0:
-    resolution: {integrity: sha512-c6AyPFCsg15BhdcmVzBdoC+1PHHqQzU7IUWj79Gj8RORri5+D6z4jzrpYcdWGEQVg7TT+nfuPCQpXH79QZWWaw==}
+  nested-env-schema@1.4.1:
+    resolution: {integrity: sha512-VNo61NvaIPif/hhyva+EcIVs8hhF/2WdTD0wepE+k14Vcq/wWkG03cZQpzhUnN1k9wYo3stpQEgIcxJCup/ksQ==}
 
   netmask@2.0.2:
     resolution: {integrity: sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==}
@@ -4124,8 +4115,6 @@ snapshots:
   '@tsconfig/node16@1.0.4': {}
 
   '@types/chai@4.3.16': {}
-
-  '@types/http-errors@2.0.4': {}
 
   '@types/json5@0.0.29': {}
 
@@ -5912,7 +5901,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  nested-env-schema@1.4.0:
+  nested-env-schema@1.4.1:
     dependencies:
       '@dotenvx/dotenvx': 1.11.1
       ajv: 8.17.1

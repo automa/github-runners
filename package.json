@@ -22,8 +22,7 @@
     "@sentry/node": "~7.59.3",
     "fastify": "~5.6.2",
     "fastify-plugin": "~5.1.0",
-    "http-errors": "~2.0.0",
-    "nested-env-schema": "~1.4.0",
+    "nested-env-schema": "~1.4.1",
     "yaml": "~2.5.0",
     "zod": "~4.1.12"
   },
@@ -46,7 +45,6 @@
   },
   "devDependencies": {
     "@types/chai": "~4.3.3",
-    "@types/http-errors": "~2.0.1",
     "@types/mocha": "~9.1.1",
     "@types/node": "~22.13.5",
     "@types/sinon": "~17.0.3",

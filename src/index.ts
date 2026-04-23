@@ -7,10 +7,9 @@ import fastify from 'fastify';
 import fastifyAutoload from '@fastify/autoload';
 import { FastifyError } from '@fastify/error';
 import fastifyHelmet from '@fastify/helmet';
-import fastifySensible from '@fastify/sensible';
+import fastifySensible, { HttpError } from '@fastify/sensible';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
-import httpErrors from 'http-errors';
 
 export const server = async () => {
   const app = fastify({
@@ -34,7 +33,7 @@ export const server = async () => {
   await app.register(fastifyHelmet);
 
   app.setErrorHandler((error, request, reply) => {
-    if (error instanceof httpErrors.HttpError) {
+    if (error instanceof HttpError) {
       return error;
     }
 
